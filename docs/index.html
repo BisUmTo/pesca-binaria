@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#10294b"><meta name="description" content="Allenati con le conversioni binarie: pesca le potenze di due senza rompere la rete."><title>Pesca binaria</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><a class="brand" href="index.html">PESCA <strong>BINARIA</strong><span class="brand-bit">01</span></a><a class="quiet" href="prof.html">Docente</a></header>
+<main>
+ <section id="welcome" class="welcome">
+  <p class="eyebrow">IL TUO ALLENAMENTO IN BASE 2</p><h1>Ogni boccia<br>conta.</h1>
+  <p>Pesca le potenze di due fino a raggiungere il numero richiesto. Se lo superi, la rete si rompe.</p>
+  <form id="start-form"><label for="name">Nome e cognome</label><input id="name" maxlength="80" autocomplete="name" required placeholder="Come ti riconosce il prof"><label for="class-name">Classe</label><input id="class-name" maxlength="40" value="1 Liceo" required><button class="primary" type="submit">Inizia a pescare</button></form>
+  <p class="small">I progressi restano in questo browser. Per consegnarli, scarica il LOG e allegalo su Classroom.</p>
+ </section>
+ <section id="game" hidden>
+  <div class="session-line"><span id="player"></span><span id="level"></span></div>
+  <div class="progress-track" aria-hidden="true"><div id="level-progress"></div></div>
+  <div class="scoreline"><span><b id="wins">0</b> riuscite</span><span><b id="broken">0</b> reti rotte</span><span><b id="attempts">0</b> tentativi</span></div>
+  <section class="playfield" aria-labelledby="challenge-title">
+   <p class="eyebrow" id="mode-label">DECIMALE IN BINARIO</p><h1 id="challenge-title">La rete regge fino a</h1>
+   <div id="target" class="target"></div><p id="prompt" class="hint"></p>
+   <div id="balls" class="balls"></div>
+   <div id="net" class="net"><span>Nella rete</span><strong id="net-total">0</strong><span id="net-bits" class="binary"></span></div>
+   <form id="answer-form" hidden><label for="answer">Qual è il valore decimale?</label><div class="answer-row"><input id="answer" type="number" min="0" max="511" step="1" inputmode="numeric" required autocomplete="off"><button class="primary" type="submit">Verifica</button></div></form>
+   <p id="feedback" class="feedback" role="status" aria-live="polite"></p><button id="next" class="primary" hidden>Prossima sfida</button>
+  </section>
+  <div class="game-actions"><button id="download" class="secondary">Scarica LOG per Classroom</button><button id="switch" class="text-button">Cambia studente</button></div>
+  <p id="save-status" class="small" role="status"></p>
+  <details><summary>Come si gioca</summary><p>Ogni boccia si può pescare una sola volta. Non puoi annullare una scelta. Se hai preso una boccia sbagliata, scegli quella più grande: la rete si rompe e riprovi lo stesso numero.</p><p>Ogni 4 sfide vinte sali di livello. Dopo le prime 8 vittorie, una sfida ogni 3 è al contrario: somma soltanto i valori con bit 1 e scrivi il numero decimale.</p><p>La boccia più grande serve sempre per rompere la rete. I suoi bit non fanno parte della soluzione.</p></details>
+ </section>
+ <p id="global-error" class="error" role="alert"></p>
+</main>
+<footer>Informatica · 1 Liceo · 17 settembre 2026</footer>
+<dialog id="switch-dialog"><h2>Cambiare studente?</h2><p>Prima di cambiare, scarica il LOG: i progressi di questo studente saranno rimossi dal browser.</p><p id="switch-warning"></p><div class="dialog-actions"><button id="cancel-switch" class="secondary">Resta qui</button><button id="confirm-switch" class="primary">Ho salvato, cambia</button></div></dialog>
+<noscript>Attiva JavaScript per giocare. Il sito funziona interamente nel tuo browser.</noscript><script type="module" src="app.mjs"></script>
+</body></html>

@@ -1,0 +1,21 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#10294b"><meta name="robots" content="noindex"><title>Docente · Pesca binaria</title><link rel="stylesheet" href="style.css"></head><body>
+<header><a class="brand" href="index.html">PESCA <strong>BINARIA</strong><span class="brand-bit">01</span></a><a class="quiet" href="index.html">Torna al gioco</a></header>
+<main class="prof-main"><div class="prof-intro"><p class="eyebrow">AREA DOCENTE</p><h1>Le pescate<br>della classe.</h1><p>Carica la chiave privata per leggere i LOG e confrontare le partite. I file restano nel browser.</p></div>
+<section id="locked" class="locked"><label class="file-label" for="private-key">Chiave privata del docente<input type="file" id="private-key" accept=".json,application/json"></label><p class="small">Usa il file chiave-privata-docente.json consegnato separatamente. Non caricarlo nel repository GitHub.</p></section>
+<section id="prof-content" hidden>
+ <div class="toolbar"><p><strong>Chiave riconosciuta.</strong> Puoi importare i LOG.</p><button id="lock" class="secondary">Chiudi area docente</button></div>
+ <label class="file-label" for="logs">LOG degli studenti<input type="file" id="logs" accept=".pesca-log,.json,application/json" multiple></label>
+ <p class="small">Puoi selezionare più file insieme. Le esportazioni successive dello stesso studente vengono unite senza contare due volte i tentativi già caricati.</p>
+ <ul id="imports" class="import-list" aria-live="polite"></ul>
+ <div class="awards">
+  <article class="award"><h3>Pesca lampo</h3><strong id="speed-winner">In attesa di LOG</strong><p id="speed-detail">Almeno 3 bocce, al primo tentativo.</p></article>
+  <article class="award"><h3>Rete più sicura</h3><strong id="precision-winner">In attesa di LOG</strong><p id="precision-detail">Meno reti rotte, con almeno 20 tentativi di pesca.</p></article>
+  <article class="award"><h3>Instancabile</h3><strong id="games-winner">In attesa di LOG</strong><p id="games-detail">Il maggior numero di partite concluse.</p></article>
+ </div>
+ <div class="toolbar"><h2>Classifica</h2><button id="csv" class="secondary" disabled>Scarica classifica CSV</button></div>
+ <p id="totals" class="small">Nessuna partita importata.</p>
+ <div class="table-wrap"><table><thead><tr><th>Studente</th><th>Classe</th><th>Vinte</th><th>Tentativi</th><th>Reti rotte</th><th>% rotte</th><th>Lampo</th><th>Inverse vinte</th></tr></thead><tbody id="ranking"></tbody></table></div>
+ <details><summary>Criteri dei premi</summary><p><strong>Pesca lampo:</strong> tempo più breve per una pesca riuscita con almeno 3 bocce distinte, escludendo i tentativi dopo un errore.</p><p><strong>Rete più sicura:</strong> percentuale di reti rotte sui soli tentativi di pesca conclusi. Servono almeno 20 tentativi di pesca.</p><p><strong>Instancabile:</strong> maggior numero di tentativi conclusi, comprese le conversioni inverse e le prove non riuscite. La tabella riporta anche il totale dei tentativi. Tutti i pari merito ricevono il premio.</p><p>Raggruppamento per nome e classe, senza distinzione tra maiuscole e minuscole. Studenti omonimi devono usare un identificativo concordato. Il tempo riprende dopo la riapertura della pagina e non include il periodo trascorso a browser chiuso.</p></details>
+ <p class="privacy">I controlli verificano la coerenza di scelte, somme, durate e risultati. La cifratura protegge il contenuto dei LOG, ma non certifica l'identità né l'autenticità della partita: un sito statico non può impedire a chi conosce il codice di costruire LOG coerenti. Usa i risultati come supporto didattico.</p>
+</section><p id="prof-error" class="error" role="alert"></p>
+</main><footer>Informatica · Area docente</footer><noscript>Attiva JavaScript per leggere i LOG.</noscript><script type="module" src="prof.mjs"></script></body></html>
