@@ -1,31 +1,34 @@
-# Pesca binaria II
+# Pesca binaria III — anteprima da collaudare
 
-V2 arcade del gioco didattico in italiano per conversioni decimale/binario. Solo HTML, CSS e JavaScript, mobile first. Nessun server applicativo, tracciamento, CDN o dipendenza da installare.
+V3 illustrata del gioco didattico in italiano per conversioni decimale/binario. Solo HTML, CSS e JavaScript, mobile first. Nessun server applicativo, tracciamento, CDN o dipendenza da installare.
 
 ## Pubblicazione su GitHub Pages
 
 1. Crea un repository vuoto sul tuo account GitHub e carica questo repository (inclusa la cartella `docs`).
 2. Apri **Settings → Pages**.
 3. In **Build and deployment**, scegli **Deploy from a branch**.
-4. Scegli il branch **v2-arcade** e la cartella **/docs**, poi salva.
+4. Scegli il branch **v3-immersive** e la cartella **/docs**, poi salva.
 5. Condividi con gli studenti l'indirizzo HTTPS indicato da GitHub Pages. La pagina docente si trova allo stesso indirizzo seguito da `prof.html`.
 
 Il sito funziona anche in un sottopercorso di GitHub Pages: tutti i riferimenti sono relativi. Non serve alcuna compilazione. La cartella `docs` contiene soltanto file pubblici, compresa la chiave pubblica.
 
 **La chiave privata viene consegnata separatamente. Non aggiungerla mai al repository, nemmeno se privato.** Mantieni una copia al sicuro: senza quella chiave i LOG non si possono leggere.
 
-## Novità della v2
+## Novità della v3
 
-- Ambientazione acquatica, sprite colorati con dimensioni crescenti e biglie che volano verso la propria posizione binaria.
+- Fondali illustrati per telefono e computer, logo dedicato, biglie di vetro colorate con dimensioni crescenti. Le biglie volano nella rete illustrata e il bit corrispondente si accende. Una rete strappata compare dopo il superamento.
+- Nome, progressi, preferenze, aiuto e download del LOG raccolti nel menu; comandi del gioco in primo piano.
 - Fila dei pesi in ordine decrescente: biglie nere e bit 0 all’inizio, colore della biglia e bit 1 dopo la pesca.
 - Comandi di tocco fermi, anche mentre le immagini delle biglie oscillano. Non serve trascinare.
 - Suoni brevi con interruttore, impostazione per ridurre le animazioni e rispetto di `prefers-reduced-motion`.
 - Controlli da tastiera e indicazioni testuali: il colore non è l’unico segnale.
 - Biglia massima 1024. Ai livelli avanzati può far parte di una soluzione con obiettivo superiore a 1024.
 - La stessa chiave privata della v1 continua a funzionare. La pagina docente v2 legge LOG v1 e v2. Una partita v1 già aperta si conclude con le sue regole, poi usa quelle della v2.
-- Nessun nuovo servizio o dipendenza. Asset locali Kenney CC0 e Fredoka OFL, con licenze nella cartella `docs/assets/licenses` e pagina pubblica `credits.html`.
+- Nessun servizio o dipendenza di compilazione. Illustrazioni generate con ImageGen; suoni Kenney CC0, font Fredoka OFL e icone Phosphor MIT. Origini e licenze in `docs/assets/licenses`, `docs/assets/v3/manifest.json` e pagina pubblica `credits.html`. Gli asset generati non sono dichiarati CC0.
 
-Il branch `main` conserva la v1 e `v2-arcade` contiene la v2. Nessuna pubblicazione remota è stata eseguita.
+Il branch `main` conserva la v1, `v2-arcade` la v2, `v3-immersive` questa anteprima della v3. Il formato dei LOG resta v2: il numero di versione grafica è indipendente. Nessuna pubblicazione remota è stata eseguita.
+
+**Stato: bozza implementata, collaudo visivo bloccato.** La v3 non è certificata come fedele al mockup o pronta per la lezione. Vedi `design-qa.md`.
 
 ## Regole
 
@@ -59,9 +62,9 @@ La pagina docente è un file statico pubblico. La protezione effettiva riguarda 
 
 ## Verifica e usabilità
 
-I 12 test automatici controllano tempi equi con o senza animazioni, calcoli, limite 1024, progressione, cambio di bit, flusso di pesca/errore/ripetizione, conversioni inverse, LOG cifrati e classifica. L’integrazione usa un DOM simulato: non verifica l’impaginazione di un browser reale.
+I 12 test automatici controllano tempi equi con o senza animazioni, calcoli, limite 1024, progressione, menu, biglie nella rete, cambio di bit, flusso di pesca/errore/ripetizione, conversioni inverse, LOG cifrati e classifica. L’integrazione usa un DOM simulato: non verifica l’impaginazione di un browser reale.
 
-La verifica visiva/interattiva in browser è bloccata in questo ambiente da un controllo di accesso del browser indisponibile. Prima della lezione controllare il sito pubblicato su un telefono: layout a 320–430 px, ultimo livello con 11 posizioni, tocco, suoni (anche su Safari), tastiera e zoom al 200%. Non è dichiarato un collaudo visivo completo.
+Anche il nuovo tentativo di verifica visiva/interattiva in browser è stato bloccato in questo ambiente da un controllo di accesso del browser indisponibile. Prima della lezione controllare il sito pubblicato su un telefono: layout a 320–430 px, ultimo livello con 11 posizioni, tocco, suoni (anche su Safari), tastiera e zoom al 200%. Non è dichiarato un collaudo visivo completo.
 
 ## Verifica locale
 

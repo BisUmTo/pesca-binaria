@@ -16,7 +16,7 @@ class Element{
  showModal(){this.open=true;}
  close(){this.open=false;}
 }
-test('flusso v2: bit, retry, inverse, 11 posizioni, ripresa, audio, LOG e classifica',async()=>{
+test('flusso v3: bit, retry, inverse, 11 posizioni, ripresa, audio, LOG e classifica',async()=>{
  const original={document:globalThis.document,window:globalThis.window,localStorage:globalThis.localStorage,fetch:globalThis.fetch,setInterval:globalThis.setInterval,setTimeout:globalThis.setTimeout};
  const oldCreate=URL.createObjectURL,oldRevoke=URL.revokeObjectURL;let exported;
  const keyPair=await crypto.subtle.generateKey({name:'RSA-OAEP',modulusLength:2048,publicExponent:new Uint8Array([1,0,1]),hash:'SHA-256'},true,['encrypt','decrypt']);
@@ -35,15 +35,15 @@ test('flusso v2: bit, retry, inverse, 11 posizioni, ripresa, audio, LOG e classi
   URL.createObjectURL=blob=>{exported=blob;return 'blob:test';};URL.revokeObjectURL=()=>{};
   await loadDocument('../docs/index.html');await import('../docs/app.mjs');await new Promise(resolve=>setImmediate(resolve));
   $('name').value='Studente Prova';$('class-name').value='1 Liceo';$('start-form').onsubmit({preventDefault(){}});
-  assert.equal($('game').hidden,false);const firstTarget=$('target').textContent;
+  assert.equal($('game').hidden,false);$('menu').click();assert.equal($('menu-dialog').open,true);$('close-menu').click();assert.equal($('menu-dialog').open,false);assert.equal($('catch').children.length,0);const firstTarget=$('target').textContent;
   assert.ok($('net-bits').children.every(slot=>slot.children[1].textContent==='0'));
   const valueOf=b=>Number(b.querySelector('.orb-number').textContent);
   // Retry must keep the same target after an overflowing pick.
   await $('balls').children.find(b=>valueOf(b)===16).click();assert.equal($('broken').textContent,1);
-  $('next').click();assert.equal($('target').textContent,firstTarget);
+  $('next').click();assert.equal($('target').textContent,firstTarget);assert.equal($('catch').children.length,0);
   for(let round=0;round<8;round++){
    const target=Number($('target').textContent);
-   for(const value of [1024,512,256,128,64,32,16,8,4,2,1])if(target&value){await $('balls').children.find(b=>valueOf(b)===value).click();const slot=$('net-bits').children.find(s=>s.children[0].textContent===value);assert.equal(slot.children[1].textContent,'1');assert.ok(slot.className.includes('lit'));}
+   for(const value of [1024,512,256,128,64,32,16,8,4,2,1])if(target&value){await $('balls').children.find(b=>valueOf(b)===value).click();const slot=$('net-bits').children.find(s=>s.children[0].textContent===value);assert.equal(slot.children[1].textContent,'1');assert.ok(slot.className.includes('lit'));assert.ok($('catch').children.some(b=>Number(b.querySelector('.orb-number').textContent)===value));}
    assert.equal($('wins').textContent,round+1);$('next').click();
   }
   assert.equal($('answer-form').hidden,false);
@@ -70,6 +70,12 @@ test('flusso v2: bit, retry, inverse, 11 posizioni, ripresa, audio, LOG e classi
   $('sound').click();assert.equal($('sound')['aria-pressed'],'false');$('motion').click();assert.equal($('motion')['aria-pressed'],'true');
   await $('download').onclick();
   const envelope=JSON.parse(await exported.text());const log=await unseal(envelope,keyPair.privateKey);assert.equal(validateLog(log),true);assert.equal(log.attempts.length,29);
+  $('menu').click();URL.createObjectURL=()=>{throw Error('download unavailable');};await $('download').onclick();
+  assert.match($('download-error').textContent,/LOG/);assert.equal($('menu-dialog').open,true);
+  URL.createObjectURL=blob=>{exported=blob;return 'blob:test';};await $('download').onclick();assert.equal($('download-error').textContent,'');
+  $('switch').click();$('confirm-switch').click();assert.equal($('welcome').hidden,false);$('menu').click();
+  assert.equal($('player').textContent,'');assert.equal($('wins').textContent,0);assert.equal($('broken').textContent,0);assert.equal($('attempts').textContent,0);assert.equal($('level').textContent,'Pronti a partire?');assert.equal($('download').disabled,true);assert.equal($('switch').disabled,true);
+
   // Real teacher handlers: unlock, import the same export twice, then reject a bad key.
   await loadDocument('../docs/prof.html');await import('../docs/prof.mjs');
   await $('private-key').onchange({target:{files:[{size:1000,text:async()=>JSON.stringify(privateKey)}],value:'test'}});

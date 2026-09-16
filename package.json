@@ -1,6 +1,6 @@
 {
   "name": "pesca-binaria",
-  "version": "2.0.0",
+  "version": "3.0.0-preview",
   "private": true,
   "type": "module",
   "description": "Gioco statico mobile first per allenarsi con il sistema binario",

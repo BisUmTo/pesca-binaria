@@ -1,35 +1,44 @@
 <!doctype html>
-<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#031a32"><meta name="description" content="Pesca le biglie luminose e componi il numero binario. Un arcade didattico per mobile e PC."><title>Pesca binaria · Arcade</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="arcade.css"></head>
-<body class="arcade">
-<header class="arcade-header"><a class="brand" href="index.html">PESCA <strong>BINARIA</strong><span class="version-mark">II</span></a><div class="header-controls"><button id="sound" class="icon-button" aria-label="Disattiva suoni" aria-pressed="true" title="Suoni">♫</button><button id="motion" class="icon-button" aria-label="Riduci animazioni" aria-pressed="false" title="Animazioni">≈</button><button id="help" class="icon-button" aria-label="Come si gioca" title="Come si gioca">?</button></div></header>
-<main class="arcade-main">
-<section id="welcome" class="welcome arcade-welcome">
- <p class="eyebrow">UN’IMMERSIONE NEL SISTEMA BINARIO</p><h1>Pesca.<br>Accendi.<br>Componi.</h1><p class="welcome-copy">Un numero da raggiungere.<br>Le biglie giuste da pescare.</p>
- <div class="welcome-orbs" aria-hidden="true"><span class="demo-orb demo-eight">8</span><span class="demo-orb demo-four">4</span><span class="demo-orb demo-one">1</span></div>
- <form id="start-form"><div class="start-fields"><div><label for="name">Nome e cognome</label><input id="name" maxlength="80" autocomplete="name" required placeholder="Il tuo nome"></div><div><label for="class-name">Classe</label><input id="class-name" maxlength="40" value="1 Liceo" required></div></div><button class="primary dive-button" type="submit">Tuffati in gioco <span aria-hidden="true">▶</span></button></form>
- <p class="small">I progressi restano qui. Scarica il LOG per consegnarli su Classroom.</p>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#03233c"><meta name="description" content="Immergiti nel sistema binario. Pesca le biglie e accendi i bit."><title>Pesca binaria III</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="immersive.css"><link rel="preload" href="assets/v3/glass-marble.webp" as="image"></head>
+<body class="immersive"><div class="game-shell">
+<header class="game-header">
+ <button id="sound" class="icon-button sound-button" aria-label="Disattiva suoni" aria-pressed="true" title="Suoni"><img id="sound-icon" src="assets/icons/speaker-high.svg" alt=""></button>
+ <a class="game-logo" href="index.html" aria-label="Pesca binaria, inizio"><picture><source media="(max-width: 600px)" srcset="assets/v3/logo-mobile.webp"><img src="assets/v3/logo.webp" alt="Pesca binaria" width="720" height="240"></picture></a>
+ <button id="menu" class="icon-button menu-button" aria-label="Apri menu e progressi" title="Menu"><img src="assets/icons/gear-six.svg" alt=""></button>
+</header>
+<main class="game-main">
+<section id="welcome" class="welcome">
+ <p class="eyebrow">UN’IMMERSIONE NEL SISTEMA BINARIO</p><h1>Ogni pescata<br>accende un bit.</h1><p>Raggiungi il numero con le biglie giuste.<br>La tua rete è pronta.</p>
+ <form id="start-form"><div class="start-fields"><div><label for="name">Nome e cognome</label><input id="name" maxlength="80" autocomplete="name" required placeholder="Il tuo nome"></div><div><label for="class-name">Classe</label><input id="class-name" maxlength="40" value="1 Liceo" required></div></div><button class="primary" type="submit">Tuffati in gioco <img class="icon" src="assets/icons/arrow-right.svg" alt=""></button></form>
+ <p class="small">I progressi restano in questo browser.<br>Scarica il LOG dal menu per consegnarli su Classroom.</p>
 </section>
 <section id="game" hidden>
- <div class="session-line"><span id="player"></span><span id="level"></span></div><div class="progress-track" aria-hidden="true"><div id="level-progress"></div></div>
  <section class="ocean-stage" aria-labelledby="challenge-title">
-  <div class="stage-decor" aria-hidden="true"><img class="seaweed seaweed-left" src="assets/marine/background_seaweed_a.svg" alt=""><img class="seaweed seaweed-right" src="assets/marine/seaweed_pink_a.svg" alt=""><img class="sea-rock" src="assets/marine/background_rock_a.svg" alt=""><img class="sea-bubble bubble-one" src="assets/marine/bubble_a.svg" alt=""><img class="sea-bubble bubble-two" src="assets/marine/bubble_a.svg" alt=""><img class="sea-bubble bubble-three" src="assets/marine/bubble_a.svg" alt=""><div class="rays"></div></div>
-  <div class="game-hud"><div><p id="mode-label" class="eyebrow">DECIMALE IN BINARIO</p><h1 id="challenge-title">Obiettivo</h1></div><strong id="target" class="target">0</strong></div>
-  <p id="prompt" class="hint">Tocca una biglia per pescarla.</p>
+  <div class="hud">
+   <div class="target-plate"><h1 id="challenge-title">Obiettivo</h1><strong id="target" class="target">0</strong></div>
+   <div id="net" class="net"><span>Nella rete:</span><strong id="net-total">0</strong><span id="net-capacity"></span><div class="net-meter" aria-hidden="true"><div id="net-fill"></div></div></div>
+   <p id="mode-label" class="mode-label">DECIMALE IN BINARIO</p>
+   <p id="prompt" class="hint">Tocca una biglia per pescarla.</p>
+  </div>
   <div id="balls" class="marble-field" role="group" aria-label="Biglie da pescare"></div>
+  <div id="net-scene" class="net-scene" aria-hidden="true"><div id="catch" class="catch"></div><img id="net-art" class="net-art" src="assets/v3/fishing-net.webp" alt="" width="600" height="300"><div id="net-landing" class="net-landing"></div></div>
   <section id="collector" class="collector" aria-label="Numero binario composto">
-   <div id="net" class="net"><span>Nella rete</span><strong id="net-total">0</strong><span id="net-capacity"></span><div class="net-meter" aria-hidden="true"><div id="net-fill"></div></div></div>
-   <div id="net-bits" class="binary-rail" role="group" aria-label="Pesi e bit, dal più grande al più piccolo"></div>
-   <p id="binary-reading" class="sr-only" aria-live="polite"></p>
+   <div id="net-bits" class="binary-rail" role="group" aria-label="Pesi e bit, dal più grande al più piccolo"></div><p id="binary-reading" class="sr-only" aria-live="polite"></p>
   </section>
   <form id="answer-form" hidden><label for="answer">Quanto valgono i bit accesi?</label><div class="answer-row"><input id="answer" type="number" min="0" max="2047" step="1" inputmode="numeric" required autocomplete="off" placeholder="Numero decimale"><button class="primary" type="submit">Verifica</button></div></form>
   <div class="result-zone"><p id="feedback" class="feedback" role="status" aria-live="polite"></p><button id="next" class="primary" hidden>Prossima sfida</button></div>
  </section>
- <div class="scoreline"><span><b id="wins">0</b> riuscite</span><span><b id="broken">0</b> reti rotte</span><span><b id="attempts">0</b> tentativi</span></div>
- <div class="game-actions"><button id="download" class="secondary">↓ Scarica LOG</button><button id="switch" class="text-button">Cambia studente</button></div><p id="save-status" class="small" role="status"></p>
 </section><p id="global-error" class="error" role="alert"></p>
-</main>
-<footer><a href="prof.html">Area docente</a><span>Pesca binaria II</span><a href="credits.html">Crediti e licenze</a></footer>
-<dialog id="help-dialog"><h2>Il numero è nella rete.</h2><p>Tocca le biglie per sommare i loro valori e raggiungere esattamente l’obiettivo.</p><p>Ogni biglia si pesca una sola volta. Non si può annullare una scelta. Se superi l’obiettivo, la rete si rompe e riprovi lo stesso numero.</p><p>In basso, ogni posizione parte da <strong>0</strong>. Peschi la biglia? Si illumina e diventa <strong>1</strong>. I valori vanno dal più grande al più piccolo, da sinistra a destra.</p><p>Ogni 4 vittorie sali di livello. Dopo 8 vittorie, ogni 3 sfide una è al contrario: leggi i bit e scrivi il numero decimale.</p><p>Puoi giocare anche con Tab e Invio. I comandi ♫ e ≈ regolano suoni e animazioni.</p><button id="close-help" class="primary">Ho capito</button></dialog>
-<dialog id="switch-dialog"><h2>Cambiare studente?</h2><p>Prima scarica il LOG. I progressi di questo studente saranno rimossi dal browser.</p><p id="switch-warning"></p><div class="dialog-actions"><button id="cancel-switch" class="secondary">Resta qui</button><button id="confirm-switch" class="primary">Ho salvato, cambia</button></div></dialog>
+</main></div>
+<dialog id="menu-dialog" aria-labelledby="menu-title"><div class="dialog-heading"><h2 id="menu-title">La tua immersione</h2><button id="close-menu" class="icon-button" aria-label="Chiudi menu"><img src="assets/icons/x.svg" alt=""></button></div>
+ <div class="session-line"><span id="player"></span><span id="level">Pronti a partire?</span></div><div class="progress-track" aria-hidden="true"><div id="level-progress"></div></div>
+ <div class="scoreline"><span><b id="wins">0</b> riuscite</span><span><b id="broken">0</b> reti rotte</span><span><b id="attempts">0</b> tentativi</span></div>
+ <button id="download" class="secondary full-width" disabled><img class="icon" src="assets/icons/download-simple.svg" alt=""> Scarica LOG</button><p id="save-status" class="small" role="status">Inizia una partita per salvare i progressi.</p>
+ <p id="download-error" class="error" role="alert"></p>
+ <div class="preferences"><button id="motion" class="secondary" aria-pressed="false">Riduci animazioni</button><button id="help" class="secondary"><img class="icon" src="assets/icons/question.svg" alt=""> Come si gioca</button></div>
+ <button id="switch" class="text-button" disabled>Cambia studente</button><footer><a href="prof.html">Area docente</a><a href="credits.html">Crediti e licenze</a><span>Versione 3</span></footer>
+</dialog>
+<dialog id="help-dialog" aria-labelledby="help-title"><h2 id="help-title">Il numero è nella rete.</h2><p>Tocca le biglie per sommare i loro valori e raggiungere esattamente l’obiettivo.</p><p>Ogni biglia si pesca una sola volta. Non si può annullare una scelta. Se superi l’obiettivo, la rete si rompe e riprovi lo stesso numero.</p><p>In basso, ogni posizione parte da <strong>0</strong>. Peschi la biglia? Si illumina e diventa <strong>1</strong>. I valori vanno dal più grande al più piccolo, da sinistra a destra.</p><p>Ogni 4 vittorie sali di livello. Dopo 8 vittorie, ogni 3 sfide una è al contrario: leggi i bit e scrivi il numero decimale.</p><p>Puoi giocare con Tab e Invio. Dal menu puoi ridurre le animazioni e scaricare il LOG.</p><button id="close-help" class="primary">Ho capito</button></dialog>
+<dialog id="switch-dialog" aria-labelledby="switch-title"><h2 id="switch-title">Cambiare studente?</h2><p>Prima scarica il LOG. I progressi di questo studente saranno rimossi dal browser.</p><p id="switch-warning"></p><div class="dialog-actions"><button id="cancel-switch" class="secondary">Resta qui</button><button id="confirm-switch" class="primary">Ho salvato, cambia</button></div></dialog>
 <noscript>Attiva JavaScript per giocare. Il sito funziona interamente nel tuo browser.</noscript><script type="module" src="app.mjs"></script>
 </body></html>

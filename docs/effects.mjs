@@ -17,7 +17,7 @@ export async function flyMarble(origin,destination,color,hue){
 export function celebrate(anchor){
  if(reduced||!anchor?.animate)return;const box=anchor.getBoundingClientRect();
  for(let i=0;i<14;i++){
-  const particle=document.createElement('span');particle.className='spark';particle.setAttribute('aria-hidden','true');Object.assign(particle.style,{left:`${box.left+box.width/2}px`,top:`${box.top+15}px`,background:i%2?'#9bffe0':'#ffdc73'});document.body.append(particle);
+  const particle=document.createElement('span');particle.className='spark';particle.setAttribute('aria-hidden','true');Object.assign(particle.style,{left:`${box.left+box.width/2}px`,top:`${box.top+15}px`,opacity:'.8'});document.body.append(particle);
   const angle=Math.PI*2*i/14,dx=Math.cos(angle)*(60+i*5),dy=Math.sin(angle)*(35+i*4)-30;
   particle.animate([{transform:'translate(0,0) scale(.2)',opacity:1},{transform:`translate(${dx}px,${dy}px) rotate(${i*40}deg) scale(1)`,opacity:.9,offset:.65},{transform:`translate(${dx*1.2}px,${dy+45}px) scale(.3)`,opacity:0}],{duration:650,easing:'ease-out'}).finished.catch(()=>{}).finally(()=>particle.remove());
  }
