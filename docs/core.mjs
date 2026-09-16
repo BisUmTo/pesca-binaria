@@ -1,18 +1,23 @@
-export const VERSION=1;
+export const VERSION=2;
 export const sum=xs=>xs.reduce((a,b)=>a+b,0);
-export function challengeFor(wins,random=Math.random){
- const width=Math.min(8,4+Math.floor(wins/4));
- return {width,target:1+Math.floor(random()*(2**width-1)),mode:wins>=8&&(wins-8)%3===0?'read':'fish'};
+export function challengeFor(wins,random=Math.random,rulesVersion=2){
+ const width=Math.min(rulesVersion===1?8:11,4+Math.floor(wins/4));
+ return {width,target:1+Math.floor(random()*(2**width-1)),mode:wins>=8&&(wins-8)%3===0?'read':'fish',rulesVersion};
+}
+export function weightsFor(a){
+ const top=a.mode==='read'?a.width-1:Math.min(a.width,(a.rulesVersion??1)===2?10:8);
+ return Array.from({length:top+1},(_,i)=>2**(top-i));
 }
 export function pick(a,value){
- if(a.status!=='playing'||!Number.isInteger(value)||value<1||value>2**a.width||(value&(value-1))||a.picks.includes(value))throw Error('Pesca non valida');
+ if(a.status!=='playing'||!Number.isInteger(value)||!weightsFor(a).includes(value)||a.picks.includes(value))throw Error('Pesca non valida');
  const picks=[...a.picks,value],n=sum(picks);
  return {...a,picks,status:n===a.target?'won':n>a.target?'broken':'playing'};
 }
 export function validateAttempt(a){
  const bad=()=>{throw Error('Partita incoerente');};
  if(!a||typeof a.id!=='string'||a.id.length<5||typeof a.challengeId!=='string'||a.challengeId.length<5)bad();
- if(!Number.isInteger(a.width)||a.width<4||a.width>8||!Number.isInteger(a.target)||a.target<1||a.target>=2**a.width)bad();
+ const version=a.rulesVersion??1;if(![1,2].includes(version))bad();
+ if(!Number.isInteger(a.width)||a.width<4||a.width>(version===1?8:11)||!Number.isInteger(a.target)||a.target<1||a.target>=2**a.width)bad();
  if(!Number.isInteger(a.retry)||a.retry<0||!Number.isFinite(a.elapsedMs)||a.elapsedMs<0||a.elapsedMs>604800000)bad();
  if(!Array.isArray(a.picks)||!Array.isArray(a.events)||a.events.length!==a.picks.length)bad();
  let previous=0;
@@ -22,19 +27,21 @@ export function validateAttempt(a){
   for(const p of a.picks)rebuilt=pick(rebuilt,p);
   if(rebuilt.status!==a.status||!['won','broken'].includes(a.status)||a.answer!==undefined)bad();
  }else if(a.mode==='read'){
-  if(a.picks.length||!Number.isInteger(a.answer)||a.answer<0||a.answer>511||!['won','wrong'].includes(a.status)||(a.answer===a.target)!==(a.status==='won'))bad();
+  if(a.picks.length||!Number.isInteger(a.answer)||a.answer<0||a.answer>(version===1?511:2047)||!['won','wrong'].includes(a.status)||(a.answer===a.target)!==(a.status==='won'))bad();
  }else bad();
  return true;
 }
 export function validateLog(log){
- if(log?.version!==VERSION||typeof log.sessionId!=='string'||typeof log.name!=='string'||!log.name.trim()||log.name.length>80||typeof log.className!=='string'||log.className.length>40||!Array.isArray(log.attempts)||log.attempts.length>20000)throw Error('Formato LOG non valido');
- const seen=new Set(),challenges=new Set();let previous=null,wins=0;
+ if(![1,VERSION].includes(log?.version)||typeof log.sessionId!=='string'||typeof log.name!=='string'||!log.name.trim()||log.name.length>80||typeof log.className!=='string'||log.className.length>40||!Array.isArray(log.attempts)||log.attempts.length>20000)throw Error('Formato LOG non valido');
+ const seen=new Set(),challenges=new Set();let previous=null,wins=0,latestRules=1;
  for(const a of log.attempts){
-  validateAttempt(a);if(seen.has(a.id))throw Error('Tentativo duplicato nel LOG');seen.add(a.id);
+  validateAttempt(a);const rules=a.rulesVersion??1;
+  if(rules<latestRules||(log.version===1&&rules!==1))throw Error('Versione delle regole incoerente');latestRules=rules;
+  if(seen.has(a.id))throw Error('Tentativo duplicato nel LOG');seen.add(a.id);
   if(previous&&previous.status!=='won'){
-   if(a.challengeId!==previous.challengeId||a.target!==previous.target||a.mode!==previous.mode||a.width!==previous.width||a.retry!==previous.retry+1)throw Error('Ripetizione incoerente');
+   if(a.challengeId!==previous.challengeId||a.target!==previous.target||a.mode!==previous.mode||a.width!==previous.width||rules!==(previous.rulesVersion??1)||a.retry!==previous.retry+1)throw Error('Ripetizione incoerente');
   }else{
-   const expected=challengeFor(wins,()=>0);
+   const expected=challengeFor(wins,()=>0,rules);
    if(challenges.has(a.challengeId)||a.retry!==0||a.mode!==expected.mode||a.width!==expected.width)throw Error('Progressione incoerente');
    challenges.add(a.challengeId);
   }
