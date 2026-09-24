@@ -1,0 +1,73 @@
+{
+  "generated_assets": [
+    {
+      "file": "bit-empty.webp",
+      "sha256": "d4d0737e5be4f9bb8e433fd0328b3503addabefc2c05a68e286ef9bc31c78148",
+      "bytes": 6496,
+      "origin": "OpenAI built-in ImageGen, 2026-09-17; reference: selected Pesca binaria mockup",
+      "processing": "WebP optimization; alpha preserved where present; transparent logo margins trimmed",
+      "license_note": "Generated project illustration; not Kenney, not represented as CC0 stock."
+    },
+    {
+      "file": "fishing-net-broken.webp",
+      "sha256": "657276f598b88929517efb784c1cc7d0cd94c6543831211d7e348df083240e4b",
+      "bytes": 150868,
+      "origin": "OpenAI built-in ImageGen, 2026-09-17; reference: selected Pesca binaria mockup",
+      "processing": "WebP optimization; alpha preserved where present; transparent logo margins trimmed",
+      "license_note": "Generated project illustration; not Kenney, not represented as CC0 stock."
+    },
+    {
+      "file": "fishing-net.webp",
+      "sha256": "d36448d4950c33ac4ce33ec05f4246be768b4e7ad846963b95304c67a828bed1",
+      "bytes": 191410,
+      "origin": "OpenAI built-in ImageGen, 2026-09-17; reference: selected Pesca binaria mockup",
+      "processing": "WebP optimization; alpha preserved where present; transparent logo margins trimmed",
+      "license_note": "Generated project illustration; not Kenney, not represented as CC0 stock."
+    },
+    {
+      "file": "glass-marble.webp",
+      "sha256": "561302f7f96463b2d242972bd3c675ba30e8b328ae533911ec429f445c090459",
+      "bytes": 24384,
+      "origin": "OpenAI built-in ImageGen, 2026-09-17; reference: selected Pesca binaria mockup",
+      "processing": "WebP optimization; alpha preserved where present; transparent logo margins trimmed",
+      "license_note": "Generated project illustration; not Kenney, not represented as CC0 stock."
+    },
+    {
+      "file": "logo-mobile.webp",
+      "sha256": "92805e78f6745e03b434250f0725be55fdbb2b5bb95ceed2e280d47dc24a0c4b",
+      "bytes": 56308,
+      "origin": "OpenAI built-in ImageGen, 2026-09-17; reference: selected Pesca binaria mockup",
+      "processing": "WebP optimization; alpha preserved where present; transparent logo margins trimmed",
+      "license_note": "Generated project illustration; not Kenney, not represented as CC0 stock."
+    },
+    {
+      "file": "logo.webp",
+      "sha256": "97182596111287779ac7c4a0efb75fc8b971172f2cad2eacf1ca05a2dac8473d",
+      "bytes": 58324,
+      "origin": "OpenAI built-in ImageGen, 2026-09-17; reference: selected Pesca binaria mockup",
+      "processing": "WebP optimization; alpha preserved where present; transparent logo margins trimmed",
+      "license_note": "Generated project illustration; not Kenney, not represented as CC0 stock."
+    },
+    {
+      "file": "ocean-background.webp",
+      "sha256": "3ab987800803bba40de5f96a0811c745d5f95dd92fe7b87da31c7f649892f729",
+      "bytes": 360324,
+      "origin": "OpenAI built-in ImageGen, 2026-09-17; reference: selected Pesca binaria mockup",
+      "processing": "WebP optimization; alpha preserved where present; transparent logo margins trimmed",
+      "license_note": "Generated project illustration; not Kenney, not represented as CC0 stock."
+    },
+    {
+      "file": "ocean-mobile.webp",
+      "sha256": "fa3a1216b6c193e3189da88fdc7044b9f7168adb98b0741d317c770b8a633dec",
+      "bytes": 330384,
+      "origin": "OpenAI built-in ImageGen, 2026-09-17; reference: selected Pesca binaria mockup",
+      "processing": "WebP optimization; alpha preserved where present; transparent logo margins trimmed",
+      "license_note": "Generated project illustration; not Kenney, not represented as CC0 stock."
+    }
+  ],
+  "third_party_icons": {
+    "source": "https://github.com/phosphor-icons/core",
+    "license": "MIT",
+    "license_file": "../licenses/Phosphor-MIT.txt"
+  }
+}

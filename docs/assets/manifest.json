@@ -1,0 +1,225 @@
+{
+  "verified": "2026-09-16",
+  "assets": [
+    {
+      "file": "sprites/ballGrey_10.png",
+      "original": "kenney_puzzle-pack-2/PNG/Balls/Grey/ballGrey_10.png",
+      "source": "https://kenney.nl/assets/puzzle-pack-2",
+      "license": "CC0-1.0",
+      "role": "148 × 148 px, bordo e doppio riflesso, biglia lucida",
+      "bytes": 2804,
+      "sha256": "e8feb98fb8588193311c4a97c333fa89e9dda4d2e66622fa18c46a88580df676"
+    },
+    {
+      "file": "sprites/ballBlue_10.png",
+      "original": "kenney_puzzle-pack-2/PNG/Balls/Blue/ballBlue_10.png",
+      "source": "https://kenney.nl/assets/puzzle-pack-2",
+      "license": "CC0-1.0",
+      "role": "148 × 148 px, bordo e doppio riflesso, biglia lucida",
+      "bytes": 2987,
+      "sha256": "b4f467b1783c2ccec82b6872f9b7ba7c8cbebf1e6a59eecd3d7aa36bb24a8c13"
+    },
+    {
+      "file": "sprites/ballYellow_10.png",
+      "original": "kenney_puzzle-pack-2/PNG/Balls/Yellow/ballYellow_10.png",
+      "source": "https://kenney.nl/assets/puzzle-pack-2",
+      "license": "CC0-1.0",
+      "role": "148 × 148 px, bordo e doppio riflesso, biglia lucida",
+      "bytes": 2980,
+      "sha256": "7aa1fa29411f0bdcb27aacd156380233cb4528fb87763ab698e284fc899f3194"
+    },
+    {
+      "file": "marine/background_seaweed_a.svg",
+      "original": "kenney_fish-pack_2/Vector/background_seaweed_a.svg",
+      "source": "https://kenney.nl/assets/fish-pack",
+      "license": "CC0-1.0",
+      "role": "Decorazione marina vettoriale",
+      "bytes": 844,
+      "sha256": "fac0bf00253f505e8a86a8d894ac4d46949d0fe38f5a028623f1ec0796e8401e"
+    },
+    {
+      "file": "marine/background_seaweed_c.svg",
+      "original": "kenney_fish-pack_2/Vector/background_seaweed_c.svg",
+      "source": "https://kenney.nl/assets/fish-pack",
+      "license": "CC0-1.0",
+      "role": "Decorazione marina vettoriale",
+      "bytes": 575,
+      "sha256": "52601e9c6c3e490643f9cca3c258c18022857594abdbe0707987bec14d73d34a"
+    },
+    {
+      "file": "marine/background_rock_a.svg",
+      "original": "kenney_fish-pack_2/Vector/background_rock_a.svg",
+      "source": "https://kenney.nl/assets/fish-pack",
+      "license": "CC0-1.0",
+      "role": "Decorazione marina vettoriale",
+      "bytes": 425,
+      "sha256": "2b0ca86b41e9c2488e3e7da512184c704095efda377be537a70fcc9776d2efff"
+    },
+    {
+      "file": "marine/bubble_a.svg",
+      "original": "kenney_fish-pack_2/Vector/bubble_a.svg",
+      "source": "https://kenney.nl/assets/fish-pack",
+      "license": "CC0-1.0",
+      "role": "Decorazione marina vettoriale",
+      "bytes": 532,
+      "sha256": "44de7b29bfcc2afab6ffb1dcb78621a7dd07824b0e0b20e79d1946ce2d8bdd5f"
+    },
+    {
+      "file": "marine/seaweed_pink_a.svg",
+      "original": "kenney_fish-pack_2/Vector/seaweed_pink_a.svg",
+      "source": "https://kenney.nl/assets/fish-pack",
+      "license": "CC0-1.0",
+      "role": "Decorazione marina vettoriale",
+      "bytes": 1281,
+      "sha256": "80187617b71f8d307ca4c9ec80aca1ec583eeb860ebca4e3301a2e24193940a1"
+    },
+    {
+      "file": "audio/click_003.ogg",
+      "original": "kenney_interface-sounds/Audio/click_003.ogg",
+      "source": "https://kenney.nl/assets/interface-sounds",
+      "license": "CC0-1.0",
+      "role": "Click pulsante",
+      "bytes": 4371,
+      "sha256": "2fa929138bc3a0f432696588f66eac94b8f6d463905ec8808c6461ce4b054292",
+      "duration_seconds": 0.01
+    },
+    {
+      "file": "audio/drop_001.ogg",
+      "original": "kenney_interface-sounds/Audio/drop_001.ogg",
+      "source": "https://kenney.nl/assets/interface-sounds",
+      "license": "CC0-1.0",
+      "role": "Pesca/pop",
+      "bytes": 5859,
+      "sha256": "692ee3a6f1821402ca649ff735bee9591dc4846c8098fc7d6a90fd15fa57c1af",
+      "duration_seconds": 0.11
+    },
+    {
+      "file": "audio/confirmation_002.ogg",
+      "original": "kenney_interface-sounds/Audio/confirmation_002.ogg",
+      "source": "https://kenney.nl/assets/interface-sounds",
+      "license": "CC0-1.0",
+      "role": "Vittoria",
+      "bytes": 14169,
+      "sha256": "33b17a9a9a2397c62b285c52c33a907fdffb476909c99e42dde603f6a7a8b12c",
+      "duration_seconds": 0.539
+    },
+    {
+      "file": "audio/glass_001.ogg",
+      "original": "kenney_interface-sounds/Audio/glass_001.ogg",
+      "source": "https://kenney.nl/assets/interface-sounds",
+      "license": "CC0-1.0",
+      "role": "Rottura/cristallo",
+      "bytes": 6103,
+      "sha256": "183eebee20eb0a532b0b85104d139cbf2673eb66d95c3cc733ac9ea98362e7e8",
+      "duration_seconds": 0.278
+    },
+    {
+      "file": "audio/error_004.ogg",
+      "original": "kenney_interface-sounds/Audio/error_004.ogg",
+      "source": "https://kenney.nl/assets/interface-sounds",
+      "license": "CC0-1.0",
+      "role": "Errore lieve",
+      "bytes": 6393,
+      "sha256": "0b574cea597d96507e782ae9764f88482ce49f46e931e57054bf7150047f2d69",
+      "duration_seconds": 0.103
+    },
+    {
+      "file": "fonts/Fredoka.ttf",
+      "original": "downloads/Fredoka.ttf",
+      "source": "https://github.com/google/fonts/tree/main/ofl/fredoka",
+      "license": "OFL-1.1",
+      "role": "Font variabile wdth,wght per titoli; testo UI font sistema",
+      "bytes": 159184,
+      "sha256": "2ba02e68b152868aef9ba28e24b3648c7d457fe6f25c761f2c2c53fb61a73fc8"
+    },
+    {
+      "file": "fonts/Fredoka.woff",
+      "original": "downloads/Fredoka.ttf",
+      "source": "https://github.com/google/fonts/tree/main/ofl/fredoka",
+      "license": "OFL-1.1",
+      "role": "Stesso font Fredoka convertito localmente in WOFF lossless per web, nessun CDN",
+      "bytes": 102196,
+      "sha256": "df4a8cab4fcad5d98b762f75fe68f1d5d4aaf0a900aed13a4f6119f0dca27848"
+    },
+    {
+      "file": "audio/drop_001.wav",
+      "original": "kenney_interface-sounds/Audio/drop_001.ogg",
+      "source": "https://kenney.nl/assets/interface-sounds",
+      "license": "CC0-1.0",
+      "role": "Pesca/pop — WAV PCM16",
+      "conversion": "Godot 4.5 decoder Ogg Vorbis, 44100 Hz; converted float output to PCM16; original channel count preserved",
+      "channels": 2,
+      "sample_rate": 44100,
+      "sample_bits": 16,
+      "frames": 4839,
+      "duration_seconds": 0.109728,
+      "peak": 0.902572,
+      "bytes": 19400,
+      "sha256": "cc5452e8c75dc5e7949fecb41ec690340533d560783a150c9ac7a5e9d5429532"
+    },
+    {
+      "file": "audio/confirmation_002.wav",
+      "original": "kenney_interface-sounds/Audio/confirmation_002.ogg",
+      "source": "https://kenney.nl/assets/interface-sounds",
+      "license": "CC0-1.0",
+      "role": "Vittoria — WAV PCM16",
+      "conversion": "Godot 4.5 decoder Ogg Vorbis, 44100 Hz; converted float output to PCM16; original channel count preserved",
+      "channels": 1,
+      "sample_rate": 44100,
+      "sample_bits": 16,
+      "frames": 23766,
+      "duration_seconds": 0.538912,
+      "peak": 0.895789,
+      "bytes": 47576,
+      "sha256": "b91853b9b072ea878ac4bd0eec8d0ccbf0db22ce68eac6fc3581dcf75ed9a46e"
+    },
+    {
+      "file": "audio/click_003.wav",
+      "original": "kenney_interface-sounds/Audio/click_003.ogg",
+      "source": "https://kenney.nl/assets/interface-sounds",
+      "license": "CC0-1.0",
+      "role": "Click pulsante — WAV PCM16",
+      "conversion": "Godot 4.5 decoder Ogg Vorbis, 44100 Hz; converted float output to PCM16; original channel count preserved",
+      "channels": 1,
+      "sample_rate": 44100,
+      "sample_bits": 16,
+      "frames": 438,
+      "duration_seconds": 0.009932,
+      "peak": 0.854947,
+      "bytes": 920,
+      "sha256": "2cecbcf32bf3cd9d2c2f73df1a4ec7e68c96270ad866e1f7f9de106b732686fa"
+    },
+    {
+      "file": "audio/error_004.wav",
+      "original": "kenney_interface-sounds/Audio/error_004.ogg",
+      "source": "https://kenney.nl/assets/interface-sounds",
+      "license": "CC0-1.0",
+      "role": "Errore lieve — WAV PCM16",
+      "conversion": "Godot 4.5 decoder Ogg Vorbis, 44100 Hz; converted float output to PCM16; original channel count preserved",
+      "channels": 2,
+      "sample_rate": 44100,
+      "sample_bits": 16,
+      "frames": 4525,
+      "duration_seconds": 0.102608,
+      "peak": 0.865863,
+      "bytes": 18144,
+      "sha256": "8b50c8995e0d6d9d2d3c8983c815a442357ff2af6d72d56acfb5742637c1abb4"
+    },
+    {
+      "file": "audio/glass_001.wav",
+      "original": "kenney_interface-sounds/Audio/glass_001.ogg",
+      "source": "https://kenney.nl/assets/interface-sounds",
+      "license": "CC0-1.0",
+      "role": "Rottura/cristallo — WAV PCM16",
+      "conversion": "Godot 4.5 decoder Ogg Vorbis, 44100 Hz; converted float output to PCM16; original channel count preserved",
+      "channels": 1,
+      "sample_rate": 44100,
+      "sample_bits": 16,
+      "frames": 12275,
+      "duration_seconds": 0.278345,
+      "peak": 0.888593,
+      "bytes": 24594,
+      "sha256": "658a988b5597e30c8c42d0b42c1d878b0b3e24c1d9747b83f697495d14051793"
+    }
+  ]
+}
